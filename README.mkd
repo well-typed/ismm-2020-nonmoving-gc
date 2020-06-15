@@ -1,0 +1,37 @@
+# Alligator Collector: Online Appendix
+
+Abstract:
+
+> Modern hardware and applications require runtime systems that can operate under
+> large-heap and low-latency requirements. For many
+> client/server or interactive applications, reducing average and maximum pause
+> times is more important than maximizing throughput.
+> 
+> The GHC Haskell runtime system version 8.10.1 offers a new
+> latency-optimized garbage collector as an alternative to the existing
+> throughput-optimized copying garbage collector.  This paper details the
+> latency-optimized GC design, which is a generational collector integrating
+> GHC's existing collector and bump-pointer allocator with a non-moving
+> collector and non-moving heap suggested by Ueno and Ohori. We provide an
+> empirical analysis on the latency/throughput tradeoffs. We augment the
+> established `nofib` micro benchmark with a set of response-time focused
+> benchmarks that simulates real-world applications such as LRU caches, web
+> search, and key-value stores.
+
+## Introduction
+
+This is the online appendix of `Alligator Collector: A Latency-Optimized
+Garbage Collector for Functional Programming Languages`. Here we include
+details which did not fit in the paper as well as references for some of the
+facets specific to the embodiment implemented in the [Glasgow Haskell
+Compiler](https://www.haskell.org/ghc/).
+
+## Detailed design
+
+A detailed account of the design, including implementation can be found in the
+[design document](design.pdf).
+
+## Additional evaluation
+
+The raw results and analysis of the used in the evaluation found in the paper
+can be found [here]().
