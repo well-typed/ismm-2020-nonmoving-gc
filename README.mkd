@@ -35,3 +35,13 @@ A detailed account of the design, including implementation can be found in the
 
 The raw results and analysis of the used in the evaluation found in the paper
 can be found [here]().
+
+## Reproducing the experiments
+
+```
+$ cd benchmarks
+$ nix build envScript
+$ source env
+$ export HC=/path/to/ghc-8.10
+$ ./run.sh run_all
+```
