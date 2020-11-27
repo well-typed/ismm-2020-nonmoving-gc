@@ -1,0 +1,54 @@
+-- filetype:lua
+
+local urls = {};
+local url_count = {};
+local n_reqs = 0;
+local counter = 0;
+local thread_counter = 0;
+
+setup = function(thread)
+  thread:set("thread_id", thread_counter);
+  thread_counter = thread_counter + 1;
+end
+
+init = function(args)
+  local urls_file = args[1];
+  n_reqs = tonumber(args[2]);
+  local seed = tonumber(args[3] + thread_id);
+  math.randomseed(seed);
+
+  urls = {};
+  for line in io.lines(urls_file) do
+    table.insert(urls, "http://localhost:3000/"..line);
+  end
+  local msg = "Loaded %d URLs, performing %d requests, seed %d...";
+  print(msg:format(#urls, n_reqs, seed));
+end
+
+request = function()
+  local n = math.random(#urls);
+  if url_count[n] == nil then
+    url_count[n] = 0;
+  end
+  url_count[n] = url_count[n] + 1;
+
+  local path = urls[n];
+  return wrk.format(nil, path);
+end
+
+response = function()
+  counter = counter + 1;
+  if n_reqs ~= 0 and counter >= n_reqs then
+    wrk.thread:stop();
+  end
+end
+
+done = function(summary, latency, requests)
+  print("\n");
+  print("URL hit rate:");
+  for i, n in ipairs(url_count) do
+    local url = urls[i];
+    local msg = "  %s: %d";
+    print(msg:format(url, n));
+  end
+end

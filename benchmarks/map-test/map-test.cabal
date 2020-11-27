@@ -1,0 +1,24 @@
+cabal-version:       >=1.10
+name:                map-test
+version:             0.1.0.0
+-- synopsis:
+-- description:
+-- bug-reports:
+-- license:
+license-file:        LICENSE
+author:              Ben Gamari
+maintainer:          ben@smart-cactus.org
+copyright:           (c) 2020 Ben Gamari
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+executable map-test
+  main-is:             Main.hs
+  ghc-options:         -rtsopts -threaded -eventlog
+  build-depends:       base >=4.12 && <4.15,
+                       containers,
+                       transformers,
+                       bench-utils,
+                       random,
+                       splitmix
+  default-language:    Haskell2010

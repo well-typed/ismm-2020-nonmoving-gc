@@ -1,0 +1,30 @@
+cabal-version:       >=1.10
+name:                lru-cache
+version:             0.1.0.0
+-- synopsis:
+-- description:
+-- bug-reports:
+license:             BSD3
+author:              Ben Gamari
+maintainer:          ben@smart-cactus.org
+copyright:           (c) 2020 Ben Gamari
+build-type:          Simple
+
+executable lru-cache
+  main-is:             Main.hs
+  ghc-options:         -rtsopts -threaded -eventlog
+  build-depends:       base >=4.11 && <4.13,
+                       scotty,
+                       http-types,
+                       text,
+                       trec-car-types,
+                       lrucaching,
+                       bench-utils
+  default-language:    Haskell2010
+
+executable lru-cache-mk-toc
+  main-is:             MkToc.hs
+  ghc-options:         -rtsopts -threaded -eventlog
+  build-depends:       base,
+                       trec-car-types
+  default-language:    Haskell2010

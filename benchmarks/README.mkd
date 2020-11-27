@@ -1,0 +1,9 @@
+# gc paper benchmarks
+
+Running:
+```
+$ git submodule update --init
+$ nix build -f . envScript
+$ source result
+$ bash run.sh run_all
+```

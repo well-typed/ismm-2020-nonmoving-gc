@@ -1,0 +1,7 @@
+# 
+
+```
+$ wget https://dumps.wikimedia.org/other/pagecounts-raw/2016/2016-01/pagecounts-20160105-090000.gz
+$ wget http://trec-car.cs.unh.edu/datareleases/v2.1/unprocessedAllButBenchmark.v2.1.tar.xz
+```
+~/trec-car/data/enwiki-20161220/release-v2.0.1/unprocessedAllButBenchmark.cbor/unprocessedAllButBenchmark.cbor
