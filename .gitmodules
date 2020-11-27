@@ -1,0 +1,3 @@
+[submodule "benchmarks/lru-cache/trec-car-tools"]
+	path = benchmarks/lru-cache/trec-car-tools
+	url = git://github.com/trema-unh/trec-car-tools-haskell
